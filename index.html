@@ -12,7 +12,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" type="text/css" href="styles/index.css" />
     <title>find_foodtruck</title>
   </head>
 
@@ -38,21 +38,20 @@
     <div id="modal" class="modal">
       <div class="modal-content">
         <h2>사용자</h2>
-        <form id="modal-form">
-          <input type="text" placeholder="찾고자 하는 주소를 입력하세요" />
+        <form id="modal-form" action="/api/register" method="POST">
+          <input type="text"  id="address"  placeholder="찾고자 하는 주소를 입력하세요" />
 
-          <input type="text" placeholder="길거리 음식점의 이름을 입력하세요" />
+          <input type="text"  id="place_name"  placeholder="길거리 음식점의 이름을 입력하세요" />
 
           <input
             type="text"
+            id="place_kind"
             placeholder="어떤 음식을 파는 길거리 음식점인지 입력해주세요"
           />
           <button type="submit" id="submit-button">등록</button>
         </form>
       </div>
     </div>
-
-    <!-- 기존의 <script> 태그들... -->
     <script>
       // 모달을 가져옵니다
       var modal = document.getElementById("modal");
@@ -80,8 +79,6 @@
         }
       };
     </script>
-
-    <!-- 기존의 <script> 태그들... -->
 
     <script
       type="text/javascript"
