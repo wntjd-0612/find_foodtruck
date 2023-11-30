@@ -42,7 +42,6 @@ body {
 }
 
 /* + 모양 (add) 아이콘을 포함하는 원형 컨테이너 스타일링 */
-/* + 모양 (add) 아이콘을 포함하는 원형 컨테이너 스타일링 */
 #plus-container {
   position: fixed;
   right: 10px; /* 오른쪽 여백 */
@@ -54,6 +53,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
   z-index: 1000; /* 다른 요소들 위에 오도록 z-index 설정 */
 }
