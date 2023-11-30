@@ -925,8 +925,8 @@ find_foodtruck|schema||wntjd|localhost|UPDATE|G</Grants>
       <Charset>utf8mb4</Charset>
     </collation>
     <schema id="288" parent="1" name="find_foodtruck">
-      <IntrospectionTimestamp>2023-12-01.00:33:14</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-11-30.06:33:14</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-12-01.01:15:41</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-11-30.07:15:41</LocalIntrospectionTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="289" parent="1" name="information_schema">
@@ -942,17 +942,33 @@ find_foodtruck|schema||wntjd|localhost|UPDATE|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <column id="293" parent="292" name="adress">
-      <DasType>varchar(100)|0s</DasType>
+    <column id="293" parent="292" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="294" parent="292" name="placename">
+    <column id="294" parent="292" name="adress">
       <DasType>varchar(100)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="295" parent="292" name="placetype">
+    <column id="295" parent="292" name="placename">
       <DasType>varchar(100)|0s</DasType>
       <Position>3</Position>
     </column>
+    <column id="296" parent="292" name="placetype">
+      <DasType>varchar(100)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <index id="297" parent="292" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="298" parent="292" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

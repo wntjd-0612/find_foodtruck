@@ -16,6 +16,9 @@ app.get('/styles/index.css', function (req, res) {
 });
 
 
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 app.post('/api/register', (req, res) => {
     const address = req.body.address;
     const place_name = req.body.place_name;
@@ -23,11 +26,11 @@ app.post('/api/register', (req, res) => {
 
     const newUser = {
         address: address,
-        place_name: place_name,
-        place_kind: place_kind
+        placename: place_name,
+        placekind: place_kind
     };
 
-    connection.query('INSERT INTO Users SET ?', newUser, (error, results, fields) => {
+    connection.query('INSERT INTO PLACE SET ?', newUser, (error, results, fields) => {
         if (error) {
             console.log(error);
             res.status(500).send('Database error');
@@ -37,7 +40,6 @@ app.post('/api/register', (req, res) => {
         }
     });
 });
-
 
 app.listen(3000,function (){
     console.log("open sever");
@@ -53,15 +55,5 @@ const connection = mysql.createConnection({
 });
 
 connection.connect();
-
-const newUser = {
-
-};
-
-
-connection.query('INSERT INTO Users SET ?', newUser, (error, results, fields) => {
-    if (error) throw error;
-    console.log('New user added with ID:', results.insertId);
-});
 
 connection.end();

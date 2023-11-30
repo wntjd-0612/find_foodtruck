@@ -38,21 +38,37 @@
     <div id="modal" class="modal">
       <div class="modal-content">
         <h2>사용자</h2>
-        <form id="modal-form" action="/api/register" method="POST">
-          <input type="text"  id="address"  placeholder="찾고자 하는 주소를 입력하세요" />
-
-          <input type="text"  id="place_name"  placeholder="길거리 음식점의 이름을 입력하세요" />
-
-          <input
-            type="text"
-            id="place_kind"
-            placeholder="어떤 음식을 파는 길거리 음식점인지 입력해주세요"
-          />
-          <button type="submit" id="submit-button">등록</button>
+        <form id="modal-form">
+          <input type="text" id="address" placeholder="찾고자 하는 주소를 입력하세요" />
+          <input type="text" id="place_name" placeholder="길거리 음식점의 이름을 입력하세요" />
+          <input type="text" id="place_kind" placeholder="어떤 음식을 파는 길거리 음식점인지 입력해주세요" />
+          <button type="button" id="submit-button">등록</button>
         </form>
       </div>
     </div>
     <script>
+      submitButton.onclick = function (event) {
+        event.preventDefault(); // 페이지 새로고침 방지
+        var address = document.getElementById("address").value;
+        var place_name = document.getElementById("place_name").value;
+        var place_kind = document.getElementById("place_kind").value;
+        var data = { address: address, place_name: place_name, place_kind: place_kind };
+        fetch('/api/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        }).then(response => {
+          if(response.ok){
+            alert('등록되었습니다.');
+            modal.style.display = "none";
+          }
+        }).catch((error) => {
+          console.error('Error:', error);
+        });
+      };
+
       // 모달을 가져옵니다
       var modal = document.getElementById("modal");
 
@@ -145,6 +161,34 @@
         // 지도 중심좌표를 접속위치로 변경합니다
         map.setCenter(locPosition);
       }
+      document.addEventListener('DOMContentLoaded', function () {
+        // 모달을 가져옵니다
+        var modal = document.getElementById("modal");
+
+        // + 버튼을 가져옵니다
+        var btn = document.getElementById("plus-sign");
+
+        // 모달을 여는 함수
+        btn.onclick = function () {
+          modal.style.display = "block";
+        };
+
+        // 모달 내부의 등록 버튼을 가져옵니다
+        var submitButton = document.getElementById("submit-button");
+
+        // 등록 버튼을 클릭했을 때 모달을 숨기는 이벤트 리스너를 추가합니다
+        submitButton.onclick = function () {
+          modal.style.display = "none";
+        };
+
+        // 윈도우에서 클릭 이벤트가 발생했을 때 모달 외부를 클릭하면 모달을 닫습니다
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+      });
+
     </script>
   </body>
 </html>
