@@ -24,7 +24,7 @@ body {
   left: 0;
   width: 100%;
   height: 20vh; /* 뷰포트 높이의 20% */
-  background-color: #ccc; /* 회색 배경 */
+  background-color: #dce0e8; /* 회색 배경 */
   display: flex;
   justify-content: center; /* 가운데 정렬 */
   align-items: flex-start; /* 위쪽에 아이콘을 배치 */
@@ -38,7 +38,7 @@ body {
   display: flex;
   justify-content: center; /* 중앙 정렬 */
   flex-grow: 1; /* 남은 공간 차지 */
-  color: gray;
+  color: #5C5F77;
 }
 
 /* + 모양 (add) 아이콘을 포함하는 원형 컨테이너 스타일링 */
@@ -46,7 +46,7 @@ body {
   position: fixed;
   right: 10px; /* 오른쪽 여백 */
   bottom: 22vh; /* 회색 영역의 높이와 같게 설정 */
-  background-color: #ccc; /* 원의 배경색 */
+  background-color: #dce0e8; /* 원의 배경색 */
   border-radius: 50%; /* 원형 모양 */
   width: 40px; /* 원의 너비 */
   height: 40px; /* 원의 높이 */
@@ -60,7 +60,7 @@ body {
 
 /* + 모양 스타일링 */
 #plus-sign {
-  color: gray;
+  color: #5C5F77;
 }
 
 /* 추가적인 반응형 디자인 */
