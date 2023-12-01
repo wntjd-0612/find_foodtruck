@@ -24,7 +24,6 @@
     <!-- 회색 영역과 아이콘 추가 -->
     <!-- 기존 HTML 코드 중 <body> 태그 내부 -->
 
-    <div id="map"></div>
 
     <!-- 회색 영역과 Material Icons 아이콘 추가 -->
     <div id="grey-area">
@@ -47,28 +46,6 @@
       </div>
     </div>
     <script>
-      submitButton.onclick = function (event) {
-        event.preventDefault(); // 페이지 새로고침 방지
-        var address = document.getElementById("address").value;
-        var place_name = document.getElementById("place_name").value;
-        var place_kind = document.getElementById("place_kind").value;
-        var data = { address: address, place_name: place_name, place_kind: place_kind };
-        fetch('/api/register', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        }).then(response => {
-          if(response.ok){
-            alert('등록되었습니다.');
-            modal.style.display = "none";
-          }
-        }).catch((error) => {
-          console.error('Error:', error);
-        });
-      };
-
       // 모달을 가져옵니다
       var modal = document.getElementById("modal");
 
@@ -83,9 +60,29 @@
       // 모달 내부의 등록 버튼을 가져옵니다
       var submitButton = document.getElementById("submit-button");
 
-      // 등록 버튼을 클릭했을 때 모달을 숨기는 이벤트 리스너를 추가합니다
-      submitButton.onclick = function () {
-        modal.style.display = "none";
+      submitButton.onclick = function (event) {
+        console.log(1)
+        event.preventDefault(); // 페이지 새로고침 방지
+        var address = document.getElementById("address").value;
+        var place_name = document.getElementById("place_name").value;
+        var place_kind = document.getElementById("place_kind").value;
+        var data = { address: address, place_name: place_name, place_kind: place_kind };
+        console.log(11)
+        fetch('/api/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        }).then(response => {
+          console.log(response)
+          if(response.ok){
+            alert('등록되었습니다.');
+            modal.style.display = "none";
+          }
+        }).catch((error) => {
+          console.error('Error:', error);
+        });
       };
 
       // 윈도우에서 클릭 이벤트가 발생했을 때 모달 외부를 클릭하면 모달을 닫습니다
@@ -175,11 +172,7 @@
 
         // 모달 내부의 등록 버튼을 가져옵니다
         var submitButton = document.getElementById("submit-button");
-
-        // 등록 버튼을 클릭했을 때 모달을 숨기는 이벤트 리스너를 추가합니다
-        submitButton.onclick = function () {
-          modal.style.display = "none";
-        };
+        
 
         // 윈도우에서 클릭 이벤트가 발생했을 때 모달 외부를 클릭하면 모달을 닫습니다
         window.onclick = function (event) {

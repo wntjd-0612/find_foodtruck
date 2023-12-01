@@ -925,8 +925,8 @@ find_foodtruck|schema||wntjd|localhost|UPDATE|G</Grants>
       <Charset>utf8mb4</Charset>
     </collation>
     <schema id="288" parent="1" name="find_foodtruck">
-      <IntrospectionTimestamp>2023-12-01.01:15:41</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-11-30.07:15:41</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-12-01.17:38:50</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-11-30.23:38:50</LocalIntrospectionTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="289" parent="1" name="information_schema">
@@ -948,7 +948,7 @@ find_foodtruck|schema||wntjd|localhost|UPDATE|G</Grants>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="294" parent="292" name="adress">
+    <column id="294" parent="292" name="address">
       <DasType>varchar(100)|0s</DasType>
       <Position>2</Position>
     </column>
