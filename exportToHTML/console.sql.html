@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>console.sql</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+console.sql</font>
+</center></td></tr></table>
+<pre><span class="s0">CREATE DATABASE </span><span class="s1">FIND_FOODTRUCK</span><span class="s2">;</span>
+<span class="s0">USE </span><span class="s1">FIND_FOODTRUCK</span><span class="s2">;</span>
+<span class="s0">CREATE TABLE </span><span class="s1">PLACE</span><span class="s2">(</span><span class="s1">id </span><span class="s0">INT AUTO_INCREMENT PRIMARY KEY</span><span class="s2">,</span><span class="s1">address </span><span class="s0">VARCHAR</span><span class="s2">(</span><span class="s3">100</span><span class="s2">), </span><span class="s1">placename </span><span class="s0">VARCHAR</span><span class="s2">(</span><span class="s3">100</span><span class="s2">), </span><span class="s1">placetype </span><span class="s0">VARCHAR</span><span class="s2">(</span><span class="s3">100</span><span class="s2">));</span>
+<span class="s0">SHOW TABLES</span><span class="s2">;</span>
+<span class="s0">INSERT INTO </span><span class="s1">place</span>
+<span class="s0">SET </span><span class="s1">address = </span><span class="s4">'address_value'</span><span class="s2">, </span><span class="s1">placename = </span><span class="s4">'placename_value'</span><span class="s2">, </span><span class="s1">placetype = </span><span class="s4">'placetype_value'</span><span class="s2">;</span>
+
+</pre>
+</body>
+</html>
