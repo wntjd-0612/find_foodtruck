@@ -50,6 +50,24 @@ app.post('/api/register', (req, res) => {
         }
     });
 });
+app.get('/api/data', (req, res) => {
+    connection.query('SELECT * FROM PLACE', (error, results, fields) => {
+        if (error) {
+            console.log(error);
+            res.status(500).send('Database error');
+        } else {
+            let data = results.map(result => {
+                return {
+                    id: result.id,
+                    address: result.address,
+                    placename: result.placename,
+                    placetype: result.placetype
+                }
+            });
+            res.status(200).json(data);
+        }
+    });
+});
 
 app.listen(3000,function (){
     console.log("open sever");

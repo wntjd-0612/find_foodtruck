@@ -1,3 +1,8 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+*{
+  font-family: "Pretendard";
+}
 /* 전체 페이지 스타일링 */
 html,
 body {
@@ -95,6 +100,7 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   animation-name: animatetop;
   animation-duration: 0.4s;
+  border-radius: 30px;
 }
 /* 모달의 제목 스타일링 */
 .modal-content h2 {
@@ -128,7 +134,8 @@ body {
 
 #submit-button {
   background-color: #7287fd;
-  color: black;
+  color: #fff;
+  font-weight: 500;
   padding: 12px 20px;
   margin-top: 20px; /* 입력 필드와 버튼 사이의 간격 */
   margin-bottom: 20px; /* 버튼과 모달 하단 사이의 간격 */
