@@ -38,7 +38,7 @@ body {
   display: flex;
   justify-content: center; /* 중앙 정렬 */
   flex-grow: 1; /* 남은 공간 차지 */
-  color: #5C5F77;
+  color: #5c5f77;
 }
 
 /* + 모양 (add) 아이콘을 포함하는 원형 컨테이너 스타일링 */
@@ -60,7 +60,7 @@ body {
 
 /* + 모양 스타일링 */
 #plus-sign {
-  color: #5C5F77;
+  color: #5c5f77;
 }
 
 /* 추가적인 반응형 디자인 */
@@ -84,6 +84,7 @@ body {
   height: 100%; /* 전체 높이 */
   background-color: rgba(0, 0, 0, 0.4); /* 반투명 배경 */
 }
+
 /* 모달 내용 스타일링 */
 .modal-content {
   background-color: #fefefe;
@@ -134,7 +135,8 @@ body {
   margin-left: auto; /* 왼쪽 마진 자동 */
   margin-right: auto; /* 오른쪽 마진 자동 */
   display: block; /* 블록 요소로 만들어 width를 설정 가능하게 함 */
-  width: 20%; /* 버튼의 너비 자동 조절 */
+  width: auto; /* 너비를 자동으로 설정 */
+  min-width: 100px; /* 최소 너비 설정 */
   max-width: 200px; /* 최대 너비 설정 */
   border: none;
   border-radius: 25px; /* 둥근 모서리 */
