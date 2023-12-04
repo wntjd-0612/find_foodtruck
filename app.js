@@ -26,6 +26,10 @@ app.get('/', function (req, res) {
 app.get('/styles/index.css', function (req, res) {
     res.sendFile(__dirname + '/styles/index.css');
 });
+// index.js 파일을 스타일 시트로 응답
+app.get('/script/index.js', function (req, res) {
+    res.sendFile(__dirname + '/script/index.js');
+});
 
 app.post('/api/register', (req, res) => {
     const address = req.body.address;
