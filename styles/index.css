@@ -35,15 +35,27 @@ body {
   align-items: flex-start; /* 위쪽에 아이콘을 배치 */
   padding-top: 10px; /* 상단 패딩 */
 }
-
-/* ^ 모양 스타일링 */
 #up-arrow {
   font-size: 3em; /* 크기 조정 */
-  height: 100%;
-  display: flex;
-  justify-content: center; /* 중앙 정렬 */
-  flex-grow: 1; /* 남은 공간 차지 */
+  position: absolute; /* 절대 위치 */
+  left: 50%; /* 좌우 중앙 정렬 */
+  transform: translateX(-50%); /* X축을 중심으로 -50% 이동 */
   color: #5c5f77;
+  cursor: pointer; /* 클릭 가능한 요소 표시 */
+  z-index: 1002; /* 다른 요소들 위에 오도록 z-index 설정 */
+}
+
+#up-arrow.up {
+  /* 회색 영역이 확장될 때 화살표의 위치 */
+  transform: translateX(-50%) rotate(180deg); /* 화살표 방향을 위로 */
+}
+
+#up-arrow.down {
+  transform: translateX(-50%) rotate(0deg); /* 화살표 방향을 아래로 */
+}
+
+#grey-area.expanded {
+  height: 80vh; /* 확장될 때의 높이 */
 }
 
 /* + 모양 (add) 아이콘을 포함하는 원형 컨테이너 스타일링 */
