@@ -25,7 +25,7 @@
       <div class="modal-content">
         <h2>사용자</h2>
         <form id="modal-form">
-          <input type="text" id="address" placeholder="찾고자 하는 주소를 입력하세요" />
+          <input type="text" id="address" placeholder="찾고자 하는 주소를 입력하세요" onkeyup="autoComplete(this.value)"/>
           <input type="text" id="place_name" placeholder="길거리 음식점의 이름을 입력하세요" />
           <input type="text" id="place_kind" placeholder="어떤 음식을 파는 길거리 음식점인지 입력해주세요" />
           <button type="button" id="submit-button">등록</button>

@@ -32,9 +32,7 @@ app.get('/script/index.js', function (req, res) {
 });
 
 app.post('/api/register', (req, res) => {
-    const address = req.body.address;
-    const place_name = req.body.place_name;
-    const place_kind = req.body.place_kind;
+    const {address, place_name, place_kind} = req.body
 
     const newData = {
         address: address,
@@ -73,6 +71,6 @@ app.get('/api/data', (req, res) => {
     });
 });
 
-app.listen(3000,function (){
+app.listen(3000, ()=>{
     console.log("open sever");
 });
