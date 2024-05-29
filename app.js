@@ -1,14 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 const connection = mysql.createConnection({
-    host: 'localhost',
-    port: '3306',
-    user: 'wntjd',
-    password: '0612',
-    database: 'find_foodtruck'
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
 
 connection.connect();
@@ -18,21 +21,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // index.html 파일을 루트 경로로 응답
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
 // index.css 파일을 스타일 시트로 응답
-app.get('/styles/index.css', function (req, res) {
+app.get('/styles/index.css', (req, res) => {
     res.sendFile(__dirname + '/styles/index.css');
 });
-// index.js 파일을 스타일 시트로 응답
-app.get('/script/index.js', function (req, res) {
+
+// index.js 파일을 스크립트로 응답
+app.get('/script/index.js', (req, res) => {
     res.sendFile(__dirname + '/script/index.js');
 });
 
 app.post('/api/register', (req, res) => {
-    const {address, place_name, place_kind} = req.body
+    const { address, place_name, place_kind } = req.body;
 
     const newData = {
         address: address,
@@ -48,10 +52,11 @@ app.post('/api/register', (req, res) => {
             res.status(500).send('Database error');
         } else {
             console.log('New Data added with ID:', results.insertId);
-            res.status(200).send('User registered successfully');
+            res.status(200).send('Place registered successfully');
         }
     });
 });
+
 app.get('/api/data', (req, res) => {
     connection.query('SELECT * FROM PLACE', (error, results, fields) => {
         if (error) {
@@ -64,13 +69,14 @@ app.get('/api/data', (req, res) => {
                     address: result.address,
                     placename: result.placename,
                     placetype: result.placetype
-                }
+                };
             });
             res.status(200).json(data);
         }
     });
 });
 
-app.listen(3000, ()=>{
-    console.log("open sever");
+// 서버 시작
+app.listen(3000, () => {
+    console.log("Server is running on port 3000");
 });
